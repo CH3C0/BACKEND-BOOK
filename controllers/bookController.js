@@ -48,7 +48,7 @@ const viewBook = async (req,res) => {
 
 
     // Control de paginacion
-    const urlBase = 'http://localhost:3000/books/';
+    const urlBase = 'https://app-book-api.herokuapp.com/books/';
     let urlNext, urlPrev, offsetNext, offsetPrev;
 
     // Next
