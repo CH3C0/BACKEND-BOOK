@@ -4,7 +4,7 @@ import express from 'express';
 import books from './routers/books.js'
 import users from './routers/usersRouts.js'
 import mongoose from 'mongoose';
-import notFound from './middleware/notfound.js';
+import notFound from './middleware/notFound.js';
 import cors from 'cors';
 
 const app = express();
