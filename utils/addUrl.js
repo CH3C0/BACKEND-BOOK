@@ -1,6 +1,6 @@
 const addUrl = (obj) => {
     const books = JSON.parse(JSON.stringify(obj));
-    const urlChapters = 'https://app-book-api.herokuapp.com/';
+    const urlChapters = 'https://app-book-api.herokuapp.com/books/';
     const urlCloudinaryImg = 'https://res.cloudinary.com/dxdejv8nr/image/upload/v1659577029/';
 
     books.forEach((element) => {
