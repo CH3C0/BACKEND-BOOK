@@ -11,18 +11,11 @@ const app = express();
 const PORT = process.env.PORT;
 const URI = process.env.MONGOURI;
 
-// Consumir API a Externos
-app.use(cors());
-
-// Habilitar Pug
-app.set('view engine', 'pug');
-
-// Conectar mongoDB
-mongoose.Promise = global.Promise;
-mongoose.connect(URI, {});
-
 // Habilitar bodyParser
 app.use(express.json());
+
+// Consumir API a Externos
+app.use(cors());
 
 // Rutas
 app.use('/', books);
@@ -30,4 +23,14 @@ app.use('/', users);
 app.use(notFound);
 
 // Arrancar servidor
-app.listen(PORT, () => console.log(`Start Server in ${PORT}`));
+const start = async () => {
+    try {
+        mongoose.connect(URI, {});
+        console.log('Conected to DB');
+        app.listen(PORT, () => console.log(`Listening on port`, +PORT));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+start();
